@@ -14,6 +14,11 @@ add wave sim:/tb_async_fifo/rd_en
 add wave -radix hexadecimal sim:/tb_async_fifo/rd_data
 add wave sim:/tb_async_fifo/empty
 
+add wave -divider {Scoreboard}
+add wave -radix unsigned sim:/tb_async_fifo/accepted_writes
+add wave -radix unsigned sim:/tb_async_fifo/accepted_reads
+add wave -radix unsigned sim:/tb_async_fifo/errors
+
 add wave -divider {FIFO pointers}
 add wave -radix unsigned sim:/tb_async_fifo/dut/wr_bin
 add wave -radix hexadecimal sim:/tb_async_fifo/dut/wr_gray
