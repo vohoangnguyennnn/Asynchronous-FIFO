@@ -1,7 +1,6 @@
 # Build and simulation output
 build/
 out/
-sim/
 work/
 obj_dir/
 *.o
