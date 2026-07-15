@@ -1,0 +1,78 @@
+# Build and simulation output
+build/
+out/
+sim/
+work/
+obj_dir/
+*.o
+*.a
+*.so
+*.exe
+*.out
+*.vvp
+
+# Waveforms and simulator databases
+*.vcd
+*.vcd.gz
+*.fst
+*.fsdb
+*.wlf
+*.lxt
+*.lxt2
+*.shm
+*.trn
+*.dsn
+
+# Logs, reports, and coverage
+*.log
+*.jou
+*.history
+*.key
+*.rpt
+*.cov
+coverage/
+cov_work/
+urgReport/
+
+# Questa / ModelSim
+modelsim.ini
+transcript
+vsim.wlf
+wlft*
+
+# Synopsys VCS / Verdi
+csrc/
+simv
+simv.daidir/
+ucli.key
+DVEfiles/
+verdiLog/
+novas.conf
+novas.rc
+
+# Cadence Xcelium / Incisive
+INCA_libs/
+xcelium.d/
+xrun.history
+xrun.log
+
+# FPGA tool output
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+db/
+incremental_db/
+output_files/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
