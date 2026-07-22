@@ -196,14 +196,6 @@ make -C sim clean
 └── README.md
 ```
 
-## Scope
-
-This project demonstrates the RTL architecture and functional verification of a
-parameterized asynchronous FIFO. The included regression covers one parameter
-configuration, one clock ratio, and one deterministic random seed. It does not
-replace target-specific synthesis checks, static timing analysis, or structural
-CDC sign-off.
-
 ## License
 
 This project is released under the [MIT License](LICENSE). Copyright © 2026
