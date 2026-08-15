@@ -9,37 +9,22 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  verilator-lint:
-    name: Verilator lint
+  lint:
+    name: Verilator RTL lint
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5
 
       - name: Install Verilator
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes --no-install-recommends verilator
+        run: sudo apt-get update && sudo apt-get install -y verilator
 
-      - name: Show tool version
-        run: verilator --version
-
-      - name: Lint synthesizable RTL
+      - name: Lint RTL
         run: |
           verilator \
             --lint-only \
-            --Wall \
-            --Wno-UNUSED \
             --sv \
             --top-module async_fifo \
             rtl/reset_sync.sv \
