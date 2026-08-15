@@ -6,6 +6,9 @@ module reset_sync #(
   output logic srst_n
 );
 
+  // Intentional reset synchronizer: asynchronous assertion enters the chain,
+  // while each subsequent stage is sampled synchronously by clk.
+  /* verilator lint_off SYNCASYNCNET */
 `ifdef ALTERA_RESERVED_QIS
   (* altera_attribute = {
     "-name ADV_NETLIST_OPT_ALLOWED NEVER_ALLOW; ",
@@ -34,5 +37,6 @@ module reset_sync #(
   end
 
   assign srst_n = sync_ff[STAGES-1];
+  /* verilator lint_on SYNCASYNCNET */
 
 endmodule
