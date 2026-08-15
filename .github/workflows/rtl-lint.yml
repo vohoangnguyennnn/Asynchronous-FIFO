@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Install Verilator
         run: |
@@ -42,6 +42,7 @@ jobs:
             --Wno-UNUSED \
             --sv \
             --top-module async_fifo \
+            rtl/reset_sync.sv \
             rtl/sync_2ff.sv \
             rtl/gray_counter.sv \
             rtl/async_fifo.sv

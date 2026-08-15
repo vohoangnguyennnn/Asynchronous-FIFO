@@ -1,5 +1,6 @@
 # Build and simulation output
 build/
+.ua/
 out/
 work/
 obj_dir/
