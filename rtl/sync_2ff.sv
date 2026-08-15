@@ -7,6 +7,19 @@ module sync_2ff #(
   output logic [WIDTH-1:0] dout
 );
 
+  // Preserve both stages and identify them as a CDC synchronizer chain.
+  // Quartus defines ALTERA_RESERVED_QIS during synthesis; other tools retain
+  // the portable ASYNC_REG marker without seeing vendor-specific attributes.
+`ifdef ALTERA_RESERVED_QIS
+  (* altera_attribute = {
+    "-name ADV_NETLIST_OPT_ALLOWED NEVER_ALLOW; ",
+    "-name SYNCHRONIZER_IDENTIFICATION FORCED_IF_ASYNCHRONOUS; ",
+    "-name DONT_MERGE_REGISTER ON; ",
+    "-name PRESERVE_REGISTER ON"
+  } *)
+`else
+  (* ASYNC_REG = "TRUE" *)
+`endif
   logic [WIDTH-1:0] ff1, ff2;
   always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n) begin
@@ -21,5 +34,3 @@ module sync_2ff #(
   assign dout = ff2;
 
 endmodule
-
-
