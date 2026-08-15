@@ -2,15 +2,18 @@ VLIB ?= vlib
 VLOG ?= vlog
 VSIM ?= vsim
 VDEL ?= vdel
+VLOG_FLAGS ?= -sv -mfcu -cuname async_fifo_project
 
 ROOT_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
 WORK_LIB := work
 DO_FILE  := sim/questa.do
 
 SOURCES := \
+	rtl/reset_sync.sv \
 	rtl/sync_2ff.sv \
 	rtl/gray_counter.sv \
 	rtl/async_fifo.sv \
+	verification/async_fifo_sva.sv \
 	verification/async_fifo_tb.sv
 
 .PHONY: all compile sim gui clean help
@@ -20,7 +23,7 @@ all: sim
 compile:
 	@cd "$(ROOT_DIR)" && \
 		if [ ! -d "$(WORK_LIB)" ]; then $(VLIB) $(WORK_LIB); fi
-	@cd "$(ROOT_DIR)" && $(VLOG) -sv -work $(WORK_LIB) $(SOURCES)
+	@cd "$(ROOT_DIR)" && $(VLOG) $(VLOG_FLAGS) -work $(WORK_LIB) $(SOURCES)
 
 sim: compile
 	@cd "$(ROOT_DIR)" && $(VSIM) -c -do $(DO_FILE)
