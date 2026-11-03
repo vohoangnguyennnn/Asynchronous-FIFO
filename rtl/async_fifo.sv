@@ -21,10 +21,12 @@ module async_fifo #(
   localparam logic [PTR_WIDTH-1:0] FULL_COMPARE_MASK = {2'b11, {(PTR_WIDTH-2){1'b0}}};
 
   logic [DATA_WIDTH-1:0] mem [0:FIFO_DEPTH-1]; // dual-port memory
+  /* verilator lint_off UNUSEDSIGNAL */
   logic [PTR_WIDTH-1:0] wr_bin, wr_gray;
   logic [PTR_WIDTH-1:0] wr_bin_next, wr_gray_next;
   logic [PTR_WIDTH-1:0] rd_bin, rd_gray;
   logic [PTR_WIDTH-1:0] rd_bin_next, rd_gray_next;
+  /* verilator lint_on UNUSEDSIGNAL */
   logic wr_accept;
   logic rd_accept;
   logic [PTR_WIDTH-1:0] wr_gray_sync_to_rd; // write pointer, seen by read side
