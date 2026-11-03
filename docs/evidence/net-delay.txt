@@ -1,0 +1,26 @@
++--------------------------------------------------------------------------------------------------------------------------+
+; Net Delay                                                                                                                ;
++---------------+-------+----------+--------+-------------------------------------+---------------------------------+------+
+; Name          ; Slack ; Required ; Actual ; From                                ; To                              ; Type ;
++---------------+-------+----------+--------+-------------------------------------+---------------------------------+------+
+; set_net_delay ; 6.943 ; 8.000    ; 1.057  ; [get_registers -no_duplicates {     ; [get_registers -no_duplicates { ; max  ;
+;               ;       ;          ;        ;   rd_counter|gray_ptr[*]            ;   sync_rd_to_wr|ff1[*]          ;      ;
+;               ;       ;          ;        ;   *|rd_counter|gray_ptr[*]          ;   *|sync_rd_to_wr|ff1[*]        ;      ;
+;               ;       ;          ;        ; }]                                  ; }]                              ;      ;
+;  --           ; 6.943 ; 8.000    ; 1.057  ; gray_counter:rd_counter|gray_ptr[5] ; sync_2ff:sync_rd_to_wr|ff1[5]   ; max  ;
+;  --           ; 6.960 ; 8.000    ; 1.040  ; gray_counter:rd_counter|gray_ptr[3] ; sync_2ff:sync_rd_to_wr|ff1[3]   ; max  ;
+;  --           ; 6.989 ; 8.000    ; 1.011  ; gray_counter:rd_counter|gray_ptr[0] ; sync_2ff:sync_rd_to_wr|ff1[0]   ; max  ;
+;  --           ; 6.998 ; 8.000    ; 1.002  ; gray_counter:rd_counter|gray_ptr[1] ; sync_2ff:sync_rd_to_wr|ff1[1]   ; max  ;
+;  --           ; 7.006 ; 8.000    ; 0.994  ; gray_counter:rd_counter|gray_ptr[4] ; sync_2ff:sync_rd_to_wr|ff1[4]   ; max  ;
+;  --           ; 7.015 ; 8.000    ; 0.985  ; gray_counter:rd_counter|gray_ptr[2] ; sync_2ff:sync_rd_to_wr|ff1[2]   ; max  ;
+; set_net_delay ; 9.601 ; 11.200   ; 1.599  ; [get_registers -no_duplicates {     ; [get_registers -no_duplicates { ; max  ;
+;               ;       ;          ;        ;   wr_counter|gray_ptr[*]            ;   sync_wr_to_rd|ff1[*]          ;      ;
+;               ;       ;          ;        ;   *|wr_counter|gray_ptr[*]          ;   *|sync_wr_to_rd|ff1[*]        ;      ;
+;               ;       ;          ;        ; }]                                  ; }]                              ;      ;
+;  --           ; 9.601 ; 11.200   ; 1.599  ; gray_counter:wr_counter|gray_ptr[0] ; sync_2ff:sync_wr_to_rd|ff1[0]   ; max  ;
+;  --           ; 9.660 ; 11.200   ; 1.540  ; gray_counter:wr_counter|gray_ptr[1] ; sync_2ff:sync_wr_to_rd|ff1[1]   ; max  ;
+;  --           ; 9.708 ; 11.200   ; 1.492  ; gray_counter:wr_counter|gray_ptr[4] ; sync_2ff:sync_wr_to_rd|ff1[4]   ; max  ;
+;  --           ; 9.711 ; 11.200   ; 1.489  ; gray_counter:wr_counter|gray_ptr[2] ; sync_2ff:sync_wr_to_rd|ff1[2]   ; max  ;
+;  --           ; 9.717 ; 11.200   ; 1.483  ; gray_counter:wr_counter|gray_ptr[3] ; sync_2ff:sync_wr_to_rd|ff1[3]   ; max  ;
+;  --           ; 9.727 ; 11.200   ; 1.473  ; gray_counter:wr_counter|gray_ptr[5] ; sync_2ff:sync_wr_to_rd|ff1[5]   ; max  ;
++---------------+-------+----------+--------+-------------------------------------+---------------------------------+------+

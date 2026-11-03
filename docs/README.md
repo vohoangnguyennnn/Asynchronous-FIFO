@@ -18,17 +18,21 @@ from occurring at an uncontrolled point relative to either clock.
 
 ### Reference configuration
 
-| Setting | Value |
-| --- | --- |
-| Data width | 8 bits |
-| FIFO depth | 16 entries |
-| Pointer width | 5 bits |
-| Write clock | 100 MHz (`10 ns`) |
-| Read clock | Approximately 71 MHz (`14 ns`) |
-| Randomized writer cycles | 400 |
-| Random seed | `32'h1A2B_3C4D` |
-| Simulator | Questa Altera Starter FPGA Edition 2025.2 |
-| STA reference target | Cyclone V `5CEFA4F23C6` |
+| Setting | Simulation | STA reference |
+| --- | --- | --- |
+| Data width | 8 bits | 8 bits |
+| `ADDR_WIDTH` | 4 | 5 (RTL default) |
+| FIFO depth | 16 entries | 32 entries |
+| Pointer width | 5 bits | 6 bits |
+| Write clock | 100 MHz (`10 ns`) | `10 ns` (SDC default) |
+| Read clock | Approximately 71 MHz (`14 ns`) | `14 ns` (SDC default) |
+| Randomized writer cycles | 400 | n/a |
+| Random seed | `32'h1A2B_3C4D` | n/a |
+| Tool | Questa Altera Starter FPGA Edition 2025.2 | Quartus Prime Standard 25.1 |
+| Target | n/a | Cyclone V `5CEFA4F23C6` |
+
+The testbench overrides `ADDR_WIDTH` to 4, while `scripts/run_sta.tcl`
+synthesizes `async_fifo` with its default parameters.
 
 The testbench drives requests on falling clock edges and observes accepted
 transactions on rising edges. A queue-based scoreboard records each accepted
@@ -46,10 +50,12 @@ The reset test checks that:
 
 ![Asynchronous assertion and synchronous reset release](images/reset-synchronization-waveform.png)
 
-The waveform should show `arst_n` releasing away from both clock edges. The
+The waveform shows `arst_n` releasing away from both clock edges. The
 write- and read-domain synchronizer shift registers then progress independently,
 causing `wr_rst_n` and `rd_rst_n` to release on their own clock edges. The
 different release times are intentional and demonstrate correct RDC handling.
+The testbench task `apply_reset` checks that each internal reset remains
+asserted after the first destination-clock edge and releases on the second.
 
 ## 3. Directed FIFO boundary verification
 
@@ -113,12 +119,13 @@ The bound `async_fifo_sva` checker verifies:
 - zero-or-one-bit Gray transitions for accepted pointer updates;
 - stable pointers during rejected overflow and underflow requests;
 - registered full and empty equations;
-- reset state and domain-local reset release behavior;
+- reset state while each domain-local reset is asserted;
 - final transactions reaching full and empty;
 - write- and read-pointer wrap-around cover points.
 
-The checker is bound externally, keeping verification logic out of the
-synthesizable design hierarchy.
+Reset release after two destination-clock edges is checked by the testbench
+(`apply_reset`), not by the assertions. The checker is bound externally, keeping
+verification logic out of the synthesizable design hierarchy.
 
 ## 7. Regression result
 
@@ -142,7 +149,13 @@ requirements, and inter-bit maximum-skew constraints to both Gray-pointer CDC
 buses. Quartus-specific attributes preserve and identify the pointer and reset
 synchronizer chains while other tools retain the portable `ASYNC_REG` marker.
 
-The reference Quartus Prime Standard 25.1 run reported:
+The figures below come from a reference Quartus Prime Standard 25.1 run of the
+32-entry configuration (`ADDR_WIDTH = 5`, 6-bit pointers), which is why there
+are 12 pointer-synchronizer chains. They can be reproduced with
+`scripts/run_sta.tcl`. The full reports are kept as text evidence:
+[`metastability.txt`](evidence/metastability.txt),
+[`max-skew.txt`](evidence/max-skew.txt), and
+[`net-delay.txt`](evidence/net-delay.txt).
 
 | Check | Result |
 | --- | --- |
@@ -173,26 +186,6 @@ make -C sim sim
 
 # Interactive GUI with all required waveform signals preloaded
 make -C sim gui
-```
-
-In the QuestaSim Wave window, enter one of the following commands in the
-Transcript pane before exporting each image:
-
-```tcl
-# Reset synchronization
-wave zoom range 0ns 180ns
-
-# Fill, full, and overflow
-wave zoom range 175ns 540ns
-
-# Drain, empty, and underflow
-wave zoom range 500ns 990ns
-
-# Gray-pointer CDC latency
-wave zoom range 175ns 320ns
-
-# Optional concurrent traffic and pointer wrap-around
-wave zoom range 980ns 1400ns
 ```
 
 ### 9.2 Save simulation and STA console logs

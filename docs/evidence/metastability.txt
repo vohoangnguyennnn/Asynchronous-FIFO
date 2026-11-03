@@ -1,0 +1,556 @@
+----------------
+; MTBF Summary ;
+----------------
+Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+Number of Synchronizer Chains Found: 14
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 0.000
+Worst Case Available Settling Time: 13.285 ns
+
+Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+  - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 79.4
+Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+  - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synchronizer Summary                                                                                                                                   ;
++-------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+; Source Node                         ; Synchronization Node                ; Worst-Case MTBF (Years) ; Typical MTBF (Years)   ; Included in Design MTBF ;
++-------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+; arst_n                              ; reset_sync:rd_reset_sync|sync_ff[0] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; arst_n                              ; reset_sync:wr_reset_sync|sync_ff[0] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[1] ; sync_2ff:sync_rd_to_wr|ff1[1]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[3] ; sync_2ff:sync_rd_to_wr|ff1[3]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[2] ; sync_2ff:sync_rd_to_wr|ff1[2]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[0] ; sync_2ff:sync_rd_to_wr|ff1[0]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[5] ; sync_2ff:sync_rd_to_wr|ff1[5]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:rd_counter|gray_ptr[4] ; sync_2ff:sync_rd_to_wr|ff1[4]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[0] ; sync_2ff:sync_wr_to_rd|ff1[0]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[3] ; sync_2ff:sync_wr_to_rd|ff1[3]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[2] ; sync_2ff:sync_wr_to_rd|ff1[2]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[1] ; sync_2ff:sync_wr_to_rd|ff1[1]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[4] ; sync_2ff:sync_wr_to_rd|ff1[4]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; gray_counter:wr_counter|gray_ptr[5] ; sync_2ff:sync_wr_to_rd|ff1[5]       ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
++-------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+
+Synchronizer Chain #1: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; arst_n                              ;
+; Synchronization Node    ; reset_sync:rd_reset_sync|sync_ff[0] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 13.285                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  Unknown                                                                  ;                        ;              ;                  ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  arst_n                                                                   ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  reset_sync:rd_reset_sync|sync_ff[0]                                      ;                        ;              ;                  ; 13.285       ;
+;  reset_sync:rd_reset_sync|sync_ff[1]                                      ;                        ;              ;                  ; n/a          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #2: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; arst_n                              ;
+; Synchronization Node    ; reset_sync:wr_reset_sync|sync_ff[0] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.030                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  Unknown                                                                  ;                        ;              ;                  ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  arst_n                                                                   ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  reset_sync:wr_reset_sync|sync_ff[0]                                      ;                        ;              ;                  ; 9.051        ;
+;  reset_sync:wr_reset_sync|sync_ff[1]                                      ;                        ;              ;                  ; 7.979        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #3: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[1] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[1]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.519                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[1]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[1]                                            ;                        ;              ;                  ; 9.118        ;
+;  sync_2ff:sync_rd_to_wr|ff2[1]                                            ;                        ;              ;                  ; 8.401        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #4: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[3] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[3]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.529                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[3]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[3]                                            ;                        ;              ;                  ; 9.118        ;
+;  sync_2ff:sync_rd_to_wr|ff2[3]                                            ;                        ;              ;                  ; 8.411        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #5: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[2] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[2]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.690                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[2]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[2]                                            ;                        ;              ;                  ; 9.050        ;
+;  sync_2ff:sync_rd_to_wr|ff2[2]                                            ;                        ;              ;                  ; 8.640        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #6: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[0] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[0]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.803                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[0]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[0]                                            ;                        ;              ;                  ; 9.263        ;
+;  sync_2ff:sync_rd_to_wr|ff2[0]                                            ;                        ;              ;                  ; 8.540        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #7: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[5] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[5]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 17.938                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[5]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[5]                                            ;                        ;              ;                  ; 8.854        ;
+;  sync_2ff:sync_rd_to_wr|ff2[5]                                            ;                        ;              ;                  ; 9.084        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #8: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:rd_counter|gray_ptr[4] ;
+; Synchronization Node    ; sync_2ff:sync_rd_to_wr|ff1[4]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 18.232                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 8.929                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:rd_counter|gray_ptr[4]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_rd_to_wr|ff1[4]                                            ;                        ;              ;                  ; 9.058        ;
+;  sync_2ff:sync_rd_to_wr|ff2[4]                                            ;                        ;              ;                  ; 9.174        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #9: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[0] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[0]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 25.366                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[0]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[0]                                            ;                        ;              ;                  ; 12.951       ;
+;  sync_2ff:sync_wr_to_rd|ff2[0]                                            ;                        ;              ;                  ; 12.415       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #10: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[3] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[3]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 25.504                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[3]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[3]                                            ;                        ;              ;                  ; 13.108       ;
+;  sync_2ff:sync_wr_to_rd|ff2[3]                                            ;                        ;              ;                  ; 12.396       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #11: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[2] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[2]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 25.525                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[2]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[2]                                            ;                        ;              ;                  ; 13.232       ;
+;  sync_2ff:sync_wr_to_rd|ff2[2]                                            ;                        ;              ;                  ; 12.293       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #12: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[1] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[1]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 25.561                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[1]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[1]                                            ;                        ;              ;                  ; 13.113       ;
+;  sync_2ff:sync_wr_to_rd|ff2[1]                                            ;                        ;              ;                  ; 12.448       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #13: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[4] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[4]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 26.192                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[4]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[4]                                            ;                        ;              ;                  ; 13.102       ;
+;  sync_2ff:sync_wr_to_rd|ff2[4]                                            ;                        ;              ;                  ; 13.090       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #14: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; gray_counter:wr_counter|gray_ptr[5] ;
+; Synchronization Node    ; sync_2ff:sync_wr_to_rd|ff1[5]       ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 26.200                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 12.5                   ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk_wr                                                                   ;                        ; 10.000       ; 100.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_rd                                                                   ;                        ; 14.000       ; 71.43 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  gray_counter:wr_counter|gray_ptr[5]                                      ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  sync_2ff:sync_wr_to_rd|ff1[5]                                            ;                        ;              ;                  ; 13.019       ;
+;  sync_2ff:sync_wr_to_rd|ff2[5]                                            ;                        ;              ;                  ; 13.181       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
