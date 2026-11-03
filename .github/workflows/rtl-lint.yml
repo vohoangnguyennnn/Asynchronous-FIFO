@@ -25,6 +25,7 @@ jobs:
         run: |
           verilator \
             --lint-only \
+            -Wall \
             --sv \
             --top-module async_fifo \
             rtl/reset_sync.sv \
