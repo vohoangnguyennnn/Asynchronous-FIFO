@@ -25,12 +25,17 @@ module async_fifo #(
   logic [PTR_WIDTH-1:0] wr_bin_next, wr_gray_next;
   logic [PTR_WIDTH-1:0] rd_bin, rd_gray;
   logic [PTR_WIDTH-1:0] rd_bin_next, rd_gray_next;
+  logic wr_accept;
+  logic rd_accept;
   logic [PTR_WIDTH-1:0] wr_gray_sync_to_rd; // write pointer, seen by read side
   logic [PTR_WIDTH-1:0] rd_sync_gray_to_wr; // read pointer, seen by write side
   logic wr_rst_n;
   logic rd_rst_n;
   logic full_next;
   logic empty_next;
+
+  assign wr_accept = wr_en && !full;
+  assign rd_accept = rd_en && !empty;
 
   initial begin
     if (DATA_WIDTH < 1)
@@ -56,7 +61,7 @@ module async_fifo #(
   gray_counter #(.ADDR_WIDTH(ADDR_WIDTH)) wr_counter (
     .clk(clk_wr),
     .rst_n(wr_rst_n),
-    .en(wr_en && !full),
+    .en(wr_accept),
     .bin_ptr(wr_bin),
     .gray_ptr(wr_gray),
     .bin_next(wr_bin_next),
@@ -66,7 +71,7 @@ module async_fifo #(
   gray_counter #(.ADDR_WIDTH(ADDR_WIDTH)) rd_counter (
     .clk(clk_rd),
     .rst_n(rd_rst_n),
-    .en(rd_en && !empty),
+    .en(rd_accept),
     .bin_ptr(rd_bin),
     .gray_ptr(rd_gray),
     .bin_next(rd_bin_next),
@@ -90,7 +95,7 @@ module async_fifo #(
   );
 
   always_comb begin
-    full_next  = (wr_gray_next == (rd_sync_gray_to_wr ^ FULL_COMPARE_MASK));
+    full_next = (wr_gray_next == (rd_sync_gray_to_wr ^ FULL_COMPARE_MASK));
     empty_next = (rd_gray_next == wr_gray_sync_to_rd);
   end
 
@@ -109,7 +114,7 @@ module async_fifo #(
   end
 
   always_ff @(posedge clk_wr) begin
-    if (wr_rst_n && wr_en && !full) begin
+    if (wr_accept) begin
       mem[wr_bin[ADDR_WIDTH-1:0]] <= wr_data;
     end
   end
