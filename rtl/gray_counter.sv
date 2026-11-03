@@ -1,9 +1,9 @@
 module gray_counter #(
   parameter int unsigned ADDR_WIDTH = 5
 )(
-  input  logic clk,
-  input  logic rst_n,
-  input  logic en,
+  input logic clk,
+  input logic rst_n,
+  input logic en,
   output logic [ADDR_WIDTH:0] bin_ptr,
   output logic [ADDR_WIDTH:0] gray_ptr,
   output logic [ADDR_WIDTH:0] bin_next,

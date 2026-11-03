@@ -1,8 +1,8 @@
 module reset_sync #(
   parameter int unsigned STAGES = 2
 )(
-  input  logic clk,
-  input  logic arst_n,
+  input logic clk,
+  input logic arst_n,
   output logic srst_n
 );
 
