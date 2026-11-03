@@ -1,5 +1,5 @@
 module sync_2ff #(
-  parameter WIDTH = 5
+  parameter int unsigned WIDTH = 5
 )(
   input logic clk,
   input logic rst_n,
