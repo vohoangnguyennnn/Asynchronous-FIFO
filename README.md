@@ -7,7 +7,6 @@
 [![HDL: SystemVerilog](https://img.shields.io/badge/HDL-SystemVerilog-2F74C0.svg)](rtl/)
 [![RTL Lint](https://github.com/vohoangnguyennnn/Asynchronous-FIFO/actions/workflows/rtl-lint.yml/badge.svg)](https://github.com/vohoangnguyennnn/Asynchronous-FIFO/actions/workflows/rtl-lint.yml)
 [![Simulation: QuestaSim 2025.2](https://img.shields.io/badge/Simulation-QuestaSim%202025.2-6E44FF.svg)](docs/README.md)
-[![Regression: Passing](https://img.shields.io/badge/Regression-Passing-2EA44F.svg)](docs/README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-F2C94C.svg)](LICENSE)
 
 </div>
@@ -85,8 +84,8 @@ cycle late.
 | Parameter | Default | Description |
 | --- | ---: | --- |
 | `DATA_WIDTH` | `8` | Width of each stored data word |
-| `ADDR_WIDTH` | `5` | Number of address bits |
-| FIFO depth | `2**ADDR_WIDTH` | Number of stored words; 32 entries by default |
+| `ADDR_WIDTH` | `5` | Number of address bits; must be at least 1 |
+| FIFO depth | `2**ADDR_WIDTH` | Number of stored words, always a power of two; 32 entries by default |
 | Pointer width | `ADDR_WIDTH + 1` | Address plus wrap-tracking bit |
 
 The verification environment overrides `ADDR_WIDTH` to `4`, producing a
@@ -109,6 +108,16 @@ The verification environment overrides `ADDR_WIDTH` to `4`, producing a
 `rd_data` uses first-word-fall-through behavior and is only meaningful while
 `empty == 0`. The memory itself is not reset, so an unknown `rd_data` value while
 the FIFO is empty is expected in simulation.
+
+### Implementation and integration notes
+
+- `rd_data` is an asynchronous (combinational) read of the memory array, so
+  synthesis infers LUT/distributed RAM rather than block RAM.
+- The `mem` to `rd_data` path is a clock-domain crossing that is safe by
+  protocol, not by synchronizer: an entry is written at least two `clk_rd` edges
+  before `empty` deasserts for it, and it is not overwritten until the read
+  pointer has moved past it. When this FIFO is integrated into a larger design,
+  this path needs system-level constraints from the integrator.
 
 ## Verification
 
@@ -147,8 +156,8 @@ The detailed report contains the complete test configuration, annotated
 QuestaSim waveforms, compilation evidence, and regression results. Waveform
 images are intentionally kept out of this top-level README.
 
-GitHub Actions runs Verilator lint on the synthesizable RTL for every push and
-pull request to `main`. The complete behavioral regression remains a QuestaSim
+GitHub Actions runs Verilator lint (`-Wall`) on the synthesizable RTL for every
+push and pull request to `main`. The complete behavioral regression remains a QuestaSim
 flow because the testbench uses simulator features that are not part of the
 open-source CI job.
 
