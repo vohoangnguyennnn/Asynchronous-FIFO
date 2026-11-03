@@ -68,8 +68,7 @@ The local status comparisons are:
 ```systemverilog
 empty_next = (rd_gray_next == wr_gray_sync_to_rd);
 
-full_next = (wr_gray_next ==
-             (rd_sync_gray_to_wr ^ FULL_COMPARE_MASK));
+full_next = (wr_gray_next == (rd_sync_gray_to_wr ^ FULL_COMPARE_MASK));
 ```
 
 Equal Gray pointers indicate an empty FIFO. A full FIFO is detected by matching
