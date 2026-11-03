@@ -125,6 +125,10 @@ require_matching_cdc_bus "read-to-write" $rd_gray_src $rd_gray_meta
 # fictitious inter-clock setup/hold relationship with explicit CDC budgets.
 # set_net_delay below separately limits the physical data-route delay. This
 # FIFO has no other register-to-register crossings between the two domains.
+# At module level rd_data is an output port. When this FIFO is integrated, the
+# path from the memory array to any clk_rd register that captures rd_data is a
+# CDC that is safe by protocol (the entry is stable for at least two clk_rd edges
+# before empty falls) and must be constrained by the integrator.
 set WR_TO_RD_MAX_DELAY_NS [expr {$RD_CLK_PERIOD_NS * $CDC_MARGIN}]
 set RD_TO_WR_MAX_DELAY_NS [expr {$WR_CLK_PERIOD_NS * $CDC_MARGIN}]
 
