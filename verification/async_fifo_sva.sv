@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module async_fifo_sva #(
   parameter int unsigned ADDR_WIDTH = 5
 )(
